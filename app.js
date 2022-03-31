@@ -1,5 +1,4 @@
 const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=racist&type=single";
-let joke = document.getElementById("joke");
 
 function getJoke() {
     fetch(url) 
@@ -7,7 +6,9 @@ function getJoke() {
         return response.json();
     })
     .then(data => {
-        console.log(data.joke)
+        let insertJoke = document.getElementById("joke");
+        let joke = data.joke
+        insertJoke.innerHTML = joke
     });       
 }
 
